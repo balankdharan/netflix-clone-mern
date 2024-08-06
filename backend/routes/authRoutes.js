@@ -3,6 +3,7 @@ import express from "express";
 const router = express.Router();
 
 router.get("/signup", function (req, res) {
+  //changes
   res.send("signUp");
 });
 router.get("/login", function (req, res) {
