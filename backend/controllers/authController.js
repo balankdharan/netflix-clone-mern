@@ -1,9 +1,15 @@
 export const signup = async (req, res) => {
-  res.send("signup");
+  try {
+    res.send("signup");
+  } catch (err) {}
 };
 export async function login(req, res) {
-  res.send("login");
+  try {
+    res.send("login");
+  } catch (err) {}
 }
 export async function logout(req, res) {
-  res.send("logout");
+  try {
+    res.send("logout");
+  } catch (err) {}
 }
