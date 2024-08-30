@@ -9,4 +9,5 @@ export const generateTokenAndSetCookie = (userId, res) => {
     sameSite: "strict",
     secure: ENV_VARS.NODE_ENV !== "development",
   });
+  return token;
 };
