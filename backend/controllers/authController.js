@@ -62,7 +62,13 @@ export const signup = async (req, res) => {
 export async function login(req, res) {
   try {
     res.send("login");
-  } catch (err) {}
+  } catch (err) {
+    console.log("err", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
 }
 export async function logout(req, res) {
   try {
