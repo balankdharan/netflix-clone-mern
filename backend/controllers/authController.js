@@ -1,4 +1,5 @@
 import { User } from "../models/user.js";
+import { generateTokenAndSetCookie } from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
   try {
@@ -43,6 +44,8 @@ export const signup = async (req, res) => {
       username: username,
       image: image,
     });
+
+    generateTokenAndSetCookie(newUser._id, res);
     await newUser.save();
     res.status(201).json({
       success: true,
