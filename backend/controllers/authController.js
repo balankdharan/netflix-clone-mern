@@ -76,6 +76,12 @@ export async function login(req, res) {
 export async function logout(req, res) {
   try {
     res.send("logout");
-  } catch (err) {}
+  } catch (err) {
+    console.log("err", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
 }
 //K1CzOXqrVwnVgk9H
