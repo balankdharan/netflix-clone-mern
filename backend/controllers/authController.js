@@ -64,7 +64,13 @@ export const signup = async (req, res) => {
 };
 export async function login(req, res) {
   try {
-    res.send("login");
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
+    }
+    const user = await User.findOne({ email: email });
   } catch (err) {
     console.log("err", err);
     return res.status(500).json({
