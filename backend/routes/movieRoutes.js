@@ -1,10 +1,8 @@
 import express from "express";
-import { login, logout, signup } from "../controllers/authController.js";
+import { getTrendingMovie } from "../controllers/movieController.js";
 
 const router = express.Router();
 
-router.get("/signup", signup);
-router.get("/login", login);
-router.get("/logout", logout);
+router.get("/trending", getTrendingMovie);
 
 export default router;
