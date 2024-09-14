@@ -1,10 +1,8 @@
 import express from "express";
-import { login, logout, signup } from "../controllers/authController.js";
+import { getTv } from "../controllers/tvController.js";
 
 const router = express.Router();
 
-router.get("/signup", signup);
-router.get("/login", login);
-router.get("/logout", logout);
+router.get("/tv", getTv);
 
 export default router;
