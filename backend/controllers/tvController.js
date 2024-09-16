@@ -1,35 +1,77 @@
-export async function getTv(req, res) {
-  try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res
-        .status(400)
-        .json({ success: false, message: "All fields are required" });
-    }
-    const user = await User.findOne({ email: email });
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Invalid credentials" });
-    }
+import { fetchFromTMDB } from "../services/tmdb.service.js";
 
-    const isPasswordCorrect = await bcryptjs.compare(password, user.password);
-    if (!isPasswordCorrect) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Invalid credentials" });
-    }
-    generateTokenAndSetCookie(user._id, res);
-    res.status(200).json({
-      success: true,
-      user: {
-        ...user._doc,
-        password: "",
-      },
-    });
+export async function getTrendingTv(req, res) {
+  try {
+    const data = await fetchFromTMDB("url");
+    const randomMovie = data.results[Math.round() * data.results?.length];
+    res.status(200).json({ success: true, content: randomMovie });
   } catch (err) {
     console.log("err", err);
     return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
+
+export async function getTvTrailers(req, res) {
+  const { id } = req.params;
+
+  try {
+    const data = await fetchFromTMDB("url");
+    res.status(200).json({ success: true, trailers: data.results });
+  } catch (err) {
+    console.log("err", err);
+    if (err.message.includes("404")) {
+      return res.status(404).send(null);
+    }
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
+
+export async function getTvDetails(req, res) {
+  const { id } = req.params;
+  try {
+    const data = await fetchFromTMDB("url");
+    res.status(200).json({ success: true, content: data });
+  } catch (err) {
+    console.log("err", err);
+    if (err.message.includes("404")) {
+      return res.status(404).send(null);
+    }
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
+
+export async function getSimilarTvs(req, res) {
+  const { id } = req.params;
+  try {
+    const data = await fetchFromTMDB("url");
+    res.status(200).json({ success: true, similar: data.results });
+  } catch (err) {
+    console.log("err", err);
+
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
+export async function getTvsByCategory(req, res) {
+  const { category } = req.params;
+  try {
+    const data = await fetchFromTMDB("url");
+    res.status(200).json({ success: true, content: data.results });
+  } catch (err) {
+    console.log("err", err);
+
+    res.status(500).json({
       success: false,
       message: "Internal server error",
     });
