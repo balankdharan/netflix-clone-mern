@@ -35,7 +35,7 @@ export async function getTvTrailers(req, res) {
 export async function getTvDetails(req, res) {
   const { id } = req.params;
   try {
-    const data = await fetchFromTMDB("url");
+    const data = await fetchFromTMDB("url/tv");
     res.status(200).json({ success: true, content: data });
   } catch (err) {
     console.log("err", err);
