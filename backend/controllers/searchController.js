@@ -91,5 +91,15 @@ export async function searchTv(req, res) {
   }
 }
 
-export async function getSearchHistory(req, res) {}
+export async function getSearchHistory(req, res) {
+  try {
+  } catch (err) {
+    console.log("err", err);
+
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
 export async function removeItemFromHistory(req, res) {}
