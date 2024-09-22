@@ -102,4 +102,14 @@ export async function getSearchHistory(req, res) {
     });
   }
 }
-export async function removeItemFromHistory(req, res) {}
+export async function removeItemFromHistory(req, res) {
+  try {
+  } catch (err) {
+    console.log("err", err);
+
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+}
