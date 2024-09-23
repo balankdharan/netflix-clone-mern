@@ -93,6 +93,7 @@ export async function searchTv(req, res) {
 
 export async function getSearchHistory(req, res) {
   try {
+    res.status(200).json({ success: true, content: req.user.searchHistory });
   } catch (err) {
     console.log("err", err);
 
@@ -103,6 +104,7 @@ export async function getSearchHistory(req, res) {
   }
 }
 export async function removeItemFromHistory(req, res) {
+  const { id } = req.params;
   try {
   } catch (err) {
     console.log("err", err);
