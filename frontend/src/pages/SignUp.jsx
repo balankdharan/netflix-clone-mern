@@ -15,7 +15,6 @@ const SignUp = () => {
             Sign up
           </h1>
         </div>
-        <form action=""></form>
       </div>
     </div>
   );
