@@ -13,7 +13,9 @@ const LoginPage = () => {
           <h1 className="text-center text-white text-2xl font-bold mb-4">
             Login
           </h1>
-          <form action=""></form>
+          <form className="space-y-4">
+            <div></div>
+          </form>
         </div>
       </div>
     </div>
