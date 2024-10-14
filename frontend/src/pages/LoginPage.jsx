@@ -15,6 +15,7 @@ const LoginPage = () => {
           </h1>
           <form className="space-y-4">
             <div></div>
+            <div></div>
           </form>
         </div>
       </div>
