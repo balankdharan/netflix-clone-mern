@@ -17,6 +17,7 @@ const SignUp = () => {
           <form className="space-y-4">
             <div></div>
             <div></div>
+            <div></div>
           </form>
         </div>
       </div>
