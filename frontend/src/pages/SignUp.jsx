@@ -14,9 +14,7 @@ const SignUp = () => {
           <h1 className="text-center text-white text-2xl font-bold mb-4">
             Sign up
           </h1>
-          <form className="space-y-4">
-            <div></div>
-          </form>
+          <form className="space-y-4"></form>
         </div>
       </div>
     </div>
