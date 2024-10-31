@@ -56,8 +56,11 @@ const LoginPage = () => {
                 id="password"
               />
             </div>
-            <button>Sign up</button>
+            <button className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700">
+              Sign up
+            </button>
           </form>
+          <div className="text-center text-gray-400">Already a member</div>
         </div>
       </div>
     </div>
