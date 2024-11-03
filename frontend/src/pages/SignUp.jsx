@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="h-screen w-full hero-bg">
       <header className="max-w-6xl mx-auto flex items-center justify-between p-4">
