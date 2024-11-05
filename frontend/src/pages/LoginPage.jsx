@@ -64,7 +64,12 @@ const LoginPage = () => {
               Login
             </button>
           </form>
-          <div className="text-center text-gray-400">Already a member</div>
+        </div>
+        <div className="text-center text-gray-400">
+          Already a member?{" "}
+          <Link to={"/login"} className="text-red-500 hover:underline">
+            Sign In
+          </Link>
         </div>
       </div>
     </div>
