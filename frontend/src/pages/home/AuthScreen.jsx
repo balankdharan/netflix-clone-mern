@@ -1,5 +1,5 @@
 const AuthScreen = () => {
-  return <div>Auth</div>;
+  return <div></div>;
 };
 
 export default AuthScreen;
