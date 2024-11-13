@@ -1,5 +1,5 @@
 const AuthScreen = () => {
-  return <div></div>;
+  return <div className="hero-bg-relative"></div>;
 };
 
 export default AuthScreen;
